@@ -13,6 +13,7 @@ class GladiatorService {
       // Si la respuesta es exitosa (código 200), decodificamos el JSON
       List<dynamic> data = json.decode(response.body);
       return data.map((item) => Gladiator.fromJson(item)).toList();  // Convertimos el JSON a Gladiator
+      
     } else {
       print("Conexión incorrecta");
       // Si la respuesta no es exitosa, lanzamos una excepción
@@ -23,7 +24,7 @@ class GladiatorService {
   // Método para enviar Gladiator a la API
   Future<void> createGladiator(Gladiator gladiator) async {
     final url = Uri.parse('http://127.0.0.1:8000/api/gladiadores/');  // Asegúrate de usar tu URL real
-
+    print('JSON enviado: ${json.encode(gladiator.toJson())}');
     try {
       final response = await http.post(
         url,
@@ -35,6 +36,8 @@ class GladiatorService {
         print('Gladiator creado exitosamente!');
       } else {
         print('Error al crear Gladiator: ${response.statusCode}');
+        print('Error al crear Gladiator: ${response.statusCode}');
+        print('Cuerpo de respuesta: ${response.body}');
       }
     } catch (e) {
       print('Error al enviar los datos: $e');

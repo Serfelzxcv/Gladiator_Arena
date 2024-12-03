@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gladiator_game/screens/gladiator_battle.dart';
+// import 'package:gladiator_game/screens/gladiator_battle.dart';
 import 'package:gladiator_game/screens/home_screen.dart';
 
 void main(){
